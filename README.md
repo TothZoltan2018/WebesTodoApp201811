@@ -25,7 +25,7 @@ Az első webes C# projektem - TO-DO alkalmazás készítése 2018
                               |     Desktop szamitogep   |                        |                            |
 +--------------+              |     Mobil eszkoz         |     Halozati kapcsolat | +--------------------------+
 |              |              |                          |                        | | Szerver alkalmazas      ||
-|  Felhasznalo |              |   +---------------+      +------------------------> | (Wenszerveren futo app) ||
+|  Felhasznalo |              |   +---------------+      +------------------------> | (Webszerveren futo app) ||
 |              |              |   | Alkalmazas    |      |                        | |                         ||
 +--------------+              |   | (Bongeszo)    |      <---------+--------------+ +---------+----------------+
                               |   +---------------+      |         ^              |           ^                |
