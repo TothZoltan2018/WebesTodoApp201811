@@ -3,6 +3,7 @@ Az első webes C# projektem - TO-DO alkalmazás készítése 2018
 
 ##A tanfolyam celja
 
+
                                 +---------------------+
                                 |   Desktop szamitogep|
 +--------------+                |                     |
@@ -36,6 +37,9 @@ Az első webes C# projektem - TO-DO alkalmazás készítése 2018
                                           |                        |                          |
                                           +                        +                          +
                                          HTML                     HTTP                       MVC
+
+
+                                               Webes alkalmazasfejlesztes
 
 
                                                Webes alkalmazasfejlesztes
