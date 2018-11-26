@@ -18,8 +18,6 @@ Az első webes C# projektem - TO-DO alkalmazás készítése 2018
          Hagyomanyos Desktop/Mobil alkalmazasfejlesztes
 
 
-
-
                                                                                   +----------------------------+
                                                                                   |   Szerver szamitogep       |
                               +--------------------------+                        |                            |
@@ -41,5 +39,3 @@ Az első webes C# projektem - TO-DO alkalmazás készítése 2018
 
                                                Webes alkalmazasfejlesztes
 
-
-                                               Webes alkalmazasfejlesztes
