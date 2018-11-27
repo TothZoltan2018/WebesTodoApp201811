@@ -26,5 +26,22 @@ namespace ToDoApp.Controllers
 
             return View();
         }
+
+        public ActionResult TodoList()
+        {
+            //bevasarlo lista adatai
+            var lista = new List<string>();
+            lista.Add("Só");
+            lista.Add("Cukor");
+            lista.Add("Spagetti");
+            lista.Add("Marhahús");
+            lista.Add("Paradicsom");
+
+            //A ViewBag-be tett adatokat a nezeten ki tudjuk olvasni
+            //figyelem:vay erosen tipusos vedelmet itt elveszitjuk
+            ViewBag.Lista = lista;
+
+            return View();
+        }
     }
 }
