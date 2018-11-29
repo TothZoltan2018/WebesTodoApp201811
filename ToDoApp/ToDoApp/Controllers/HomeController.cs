@@ -37,11 +37,16 @@ namespace ToDoApp.Controllers
             lista.Add("Marhahús");
             lista.Add("Paradicsom");
 
+            //------- Ez volt az megoldas #1 Mukodott, de eleg proszto --------
             //A ViewBag-be tett adatokat a nezeten ki tudjuk olvasni
-            //figyelem:vay erosen tipusos vedelmet itt elveszitjuk
-            ViewBag.Lista = lista;
-
-            return View();
+            //figyelem:az erosen tipusos vedelmet itt elveszitjuk
+            //ViewBag.Lista = lista;
+            //return View();
+            
+            //------- Ez a megoldas #2 ---------------------
+            //A TodoList.cshtml elejere: @model List<string>
+            return View(lista);
+            //---------------------------------------------------
         }
     }
 }
