@@ -2,8 +2,10 @@
     Kiegeszitettuk a View definiciojat, hogy kepes legyen List<string> tipusu adatot
     fogadni. Mintha a View egy fgv lenne, es azt mondanank hogy:
     View(List<string> Model) vagy TodoList(List<string> Model)
+    @model List<string>
 *@
-@model List<string>
+
+@model List<ToDoApp.Models.TodoItem>
 
 @{
     ViewBag.Title = "TodoList";
@@ -22,8 +24,16 @@
 
 @*-------------- megoldas #2-------------------------------------------*@
 <ol>
-    @foreach (var elem in Model)  
+    @foreach (var todoItem in Model)
     {
-        <li>@elem</li>
+        if (todoItem.Done)
+        {
+            <li><strike>@todoItem.Name</strike></li>
+        }
+        else
+        {
+            <li>@todoItem.Name</li>
+        }
+
     }
 </ol>
