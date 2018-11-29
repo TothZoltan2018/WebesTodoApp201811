@@ -1,0 +1,23 @@
+﻿@model List<ToDoApp.Models.TodoItem>
+
+@{
+    ViewBag.Title = "TodoList";
+}
+
+<h2>Bevásárlólista</h2>
+
+<ol>
+    @foreach (var todoItem in Model)
+    {
+        if (todoItem.Done)
+        {
+    <li><strike>@todoItem.Name</strike></li>
+        }
+        else
+        {
+    <li>@todoItem.Name</li>
+        }
+    }
+</ol>
+
+<a href="/Todo/Create">Uj cikk felvitele</a> 

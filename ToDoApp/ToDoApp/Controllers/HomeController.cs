@@ -11,11 +11,11 @@ namespace ToDoApp.Controllers
     {
         public ActionResult Index()
         {
-            return View();
+            return View();  
         }
 
         public ActionResult About()
-        {
+        { 
             ViewBag.Message = "Your application description page.";
 
             return View();
@@ -28,8 +28,8 @@ namespace ToDoApp.Controllers
             return View();
         }
 
-        public ActionResult TodoList()
-        {
+  //      public ActionResult TodoList()
+  //      {
             //------- Ez volt az megoldas #1 Mukodott, de eleg proszto --------
             //var lista = new List<string>();
             //lista.Add("Só");
@@ -47,15 +47,7 @@ namespace ToDoApp.Controllers
             //A TodoList.cshtml elejere: @model List<string>
             //return View(lista);
             //---------------------------------------------------
-
-            var lista = new List<TodoItem>();
-            lista.Add(new TodoItem() { Name = "Só", Done = true});
-            lista.Add(new TodoItem() { Name = "Cukor", Done = true });
-            lista.Add(new TodoItem() { Name = "Spagetti", Done = true });
-            lista.Add(new TodoItem() { Name = "Marhahús", Done = false });
-            lista.Add(new TodoItem() { Name = "Paradicsom", Done = false });
-
-            return View(lista);
-        }
+            
+    //    }
     }
 }
