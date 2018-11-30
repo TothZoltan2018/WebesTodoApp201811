@@ -1,23 +1,39 @@
-﻿@model List<ToDoApp.Models.TodoItem>
+﻿@* megoldas #2: A nezetunknek meg tudjuk adni a modellt, a tipust, amilyen adatokat ide varunk
+    Kiegeszitettuk a View definiciojat, hogy kepes legyen List<string> tipusu adatot
+    fogadni. Mintha a View egy fgv lenne, es azt mondanank hogy:
+    View(List<string> Model) vagy TodoList(List<string> Model)
+    @model List<string>
+*@
+
+@model List<ToDoApp.Models.TodoItem>
 
 @{
     ViewBag.Title = "TodoList";
 }
 
 <h2>Bevásárlólista</h2>
+@*-------------- megoldas #1 -----------------------------------------*@
+@*kiolvasom a ViewBag-be tarolt informaciot itt a nezeten*@
+@*A megoldas, hogy egy ciklussal kiolvasom a listabol az adatokat, es ugy irjuk a HTML-t*@
+@*<ol>
+        @foreach (var elem in @ViewBag.Lista) // @ nelkul is jo
+        {
+        <li>@elem</li>
+        }
+    </ol>*@
 
+@*-------------- megoldas #2-------------------------------------------*@
 <ol>
     @foreach (var todoItem in Model)
     {
         if (todoItem.Done)
         {
-    <li><strike>@todoItem.Name</strike></li>
+            <li><strike>@todoItem.Name</strike></li>
         }
         else
         {
-    <li>@todoItem.Name</li>
+            <li>@todoItem.Name</li>
         }
+
     }
 </ol>
-
-<a href="/Todo/Create">Uj cikk felvitele</a> 
