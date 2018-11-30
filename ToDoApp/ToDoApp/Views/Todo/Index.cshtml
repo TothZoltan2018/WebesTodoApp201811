@@ -18,6 +18,12 @@
         {
             <li>@todoItem.Name</li>
         }
-
     }
 </ol>
+
+@*mindeket megoldas ugyanoda visz, a masodik a beepitett ASP.NET
+szolgaltatas, nem kell megadni a Controllert, mert tudja, hol vagyunk.*@
+@*Ezek a megjegyzesek nem latszanak a bongeszoben view source eseten*@
+<a href="/Todo/Create">Uj cikk felvitele</a>
+@Html.ActionLink("Uj cikk felvitele", "Create")
+
