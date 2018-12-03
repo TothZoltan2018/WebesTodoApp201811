@@ -14,6 +14,14 @@ namespace ToDoApp.Controllers
             return View(MyDb.Lista);
         }
 
+        //[HttpGet, HttpPost]
+        [HttpGet] //annotacio. A routing innentol csak a GET keresek eseten iranyit ide
+        public ActionResult Create()
+        {
+            return View();
+        }
+
+        [HttpPost]//annotacio. A routing innentol csak a POST keresek eseten iranyit ide
         public ActionResult Create(string Name)
         {
             if (!string.IsNullOrEmpty(Name))
@@ -24,7 +32,9 @@ namespace ToDoApp.Controllers
                 return RedirectToAction("Index");
             }
 
-             return View();
+            //todo: mivel a adat nem valid, itt kene a hibauzenettel valamit kezdeni
+            //(kiadni az ugyfel fele)
+            return View();
         }
 
     }
