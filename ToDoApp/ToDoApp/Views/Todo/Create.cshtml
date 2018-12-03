@@ -7,8 +7,11 @@
 @*ha nincs megadva a formon a method,
 akkor alapbol GET*@
 <form method="post">
-    <input name="Name" />
-    <input type="submit" value="Mentés" />
+    <input name="name">
+    <input id="isDone" name="isDone" type="checkbox" value="true" >
+    <input name="isDone" type="hidden" value="false">
+    @*@Html.CheckBox("isDone")*@ @*ASP.NET MVC adja, a fenti 2 sor html kodot generalja, a bongeszoben mar az lathato*@
+    <input type="submit" value="Mentés" >
     <button>Mentés</button>
 </form>
 

@@ -22,12 +22,12 @@ namespace ToDoApp.Controllers
         }
 
         [HttpPost]//annotacio. A routing innentol csak a POST keresek eseten iranyit ide
-        public ActionResult Create(string Name)
+        public ActionResult Create(string name, bool isDone)
         {
-            if (!string.IsNullOrEmpty(Name))
+            if (!string.IsNullOrEmpty(name))
             {//Ha van adat a parameterben
                 //adatok mentese es vissza az indexre
-                MyDb.Lista.Add(new TodoItem() { Name = Name, Done = true });
+                MyDb.Lista.Add(new TodoItem() { Name = name, Done = isDone });
 
                 return RedirectToAction("Index");
             }
