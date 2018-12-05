@@ -1,0 +1,17 @@
+﻿@model ToDoApp.Models.TodoItem
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+@*A modositas Acton PUT-ra van allitva, igy a form is ilyen hivast fog gyartani*@
+<form method="put">
+    <input name="name" value="@Model.Name">
+    <input id="isDone" name="isDone" type="checkbox" value="true" >
+    <input name="isDone" type="hidden" value="false">
+    @*@Html.CheckBox("isDone")*@ @*ASP.NET MVC adja, a fenti 2 sor html kodot generalja, a bongeszoben mar az lathato*@
+    <input type="submit" value="Mentés" >
+    <button>Mentés</button>
+</form>
+
+@Html.ActionLink("Mégsem " , "Index")  
