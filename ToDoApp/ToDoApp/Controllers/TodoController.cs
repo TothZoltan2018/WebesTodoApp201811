@@ -59,20 +59,10 @@ namespace ToDoApp.Controllers
             return View(item);
         }
         
-        [HttpPost]
+        [HttpPut]
         public ActionResult Edit(string name, bool isDone)
         {
-            if (!string.IsNullOrEmpty(name))
-            {//Ha van adat a parameterben
-                //adatok mentese es vissza az indexre
-                MyDb.Lista.Add(new TodoItem() { Name = name, Done = isDone });
-
-                return RedirectToAction("Index");
-            }
-
-            //todo: mivel a adat nem valid, itt kene a hibauzenettel valamit kezdeni
-            //(kiadni az ugyfel fele)
-            return View();
+              return View();
         }
 
 
