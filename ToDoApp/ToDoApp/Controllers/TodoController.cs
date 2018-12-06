@@ -27,7 +27,11 @@ namespace ToDoApp.Controllers
             if (!string.IsNullOrEmpty(name))
             {//Ha van adat a parameterben
                 //adatok mentese es vissza az indexre
-                MyDb.Lista.Add(new TodoItem() { Name = name, Done = isDone });
+                //Ez nem jo, mert ha torlok a listabol, akkor onnantol ez duplazni fogja az Id-kat
+                //var maxId = MyDb.Lista.Count;
+
+                var maxId = MyDb.Lista.Max(x => x.Id);
+                MyDb.Lista.Add(new TodoItem() { Id = maxId+1, Name = name, Done = isDone });
 
                 return RedirectToAction("Index");
             }
@@ -61,13 +65,29 @@ namespace ToDoApp.Controllers
         
         [HttpPost]
         public ActionResult Edit(int id, string name, bool done) 
+        //public ActionResult Edit(TodoItem item) // nem jon vissza adat a view-bol
         {
             //a modositott elem kikeresese
             var item = MyDb.Lista.Single(x => x.Id == id);
             //A modositasok vegrehajtasa
             item.Name = name;
             item.Done = done;
-            return RedirectToAction("Index");
+            return RedirectToAction("Index");            
         }
+
+        [HttpGet]
+        public ActionResult Delete(int id)
+        {
+            var item = MyDb.Lista.Single(x => x.Id == id);
+            return View(item);
+        }
+
+        [HttpPost]
+        public ActionResult DeleteConfirmed(int id)
+        {
+            var item = MyDb.Lista.Single(x => x.Id == id); 
+            MyDb.Lista.Remove(item);
+            return RedirectToAction("Index");             
+        } 
     }
 } 
