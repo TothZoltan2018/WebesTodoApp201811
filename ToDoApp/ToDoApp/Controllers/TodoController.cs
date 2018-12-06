@@ -59,13 +59,15 @@ namespace ToDoApp.Controllers
             return View(item);
         }
         
-        [HttpPut]
-        public ActionResult Edit(string name, bool isDone)
+        [HttpPost]
+        public ActionResult Edit(int id, string name, bool done) 
         {
-              return View();
+            //a modositott elem kikeresese
+            var item = MyDb.Lista.Single(x => x.Id == id);
+            //A modositasok vegrehajtasa
+            item.Name = name;
+            item.Done = done;
+            return RedirectToAction("Index");
         }
-
-
-
     }
 } 
