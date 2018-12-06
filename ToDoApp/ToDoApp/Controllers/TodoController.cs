@@ -88,6 +88,13 @@ namespace ToDoApp.Controllers
             var item = MyDb.Lista.Single(x => x.Id == id); 
             MyDb.Lista.Remove(item);
             return RedirectToAction("Index");             
-        } 
+        }
+
+        public ActionResult Detalis(int id)
+        {
+            var item = MyDb.Lista.Single(x => x.Id == id);
+            return View(item);
+
+        }
     }
 } 

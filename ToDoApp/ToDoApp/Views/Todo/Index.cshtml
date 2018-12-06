@@ -6,24 +6,32 @@
 }
 
 <h2>Bevásárlólista</h2>
+@*mindeket megoldas ugyanoda visz, a masodik a beepitett ASP.NET
+    szolgaltatas, nem kell megadni a Controllert, mert tudja, hol vagyunk.*@
+@*Ezek a megjegyzesek nem latszanak a bongeszoben view source eseten*@
+<a href="/Todo/Create">Uj cikk felvitele</a>
+@Html.ActionLink("Uj cikk felvitele", "Create")
 
 <ol>
     @foreach (var todoItem in Model)
     {
         if (todoItem.Done)
         {
-            <li><strike>@todoItem.Name</strike></li>
+            <li><strike>@Html.ActionLink(todoItem.Name, "Detalis", new { id = todoItem.Id })</strike>  @Html.ActionLink("Módosítás", "Edit", new { id = todoItem.Id })  @Html.ActionLink("Törlés", "Delete", new { id = todoItem.Id })  </li>
         }
         else
         {
-            <li>@todoItem.Name</li>
+            <li>@Html.ActionLink(todoItem.Name, "Detalis", new { id = todoItem.Id })   @Html.ActionLink("Módosítás", "Edit", new { id = todoItem.Id })  @Html.ActionLink("Törlés", "Delete", new { id = todoItem.Id })  </li>
         }
     }
 </ol>
+@*alapertelmezetten POST*@
+@using (Html.BeginForm("Create", "Todo"))
+{
+    @Html.TextBox("Name")
+    @Html.CheckBox("isDone")
+    <button>Mentés</button>
+}
 
-@*mindeket megoldas ugyanoda visz, a masodik a beepitett ASP.NET
-szolgaltatas, nem kell megadni a Controllert, mert tudja, hol vagyunk.*@
-@*Ezek a megjegyzesek nem latszanak a bongeszoben view source eseten*@
-<a href="/Todo/Create">Uj cikk felvitele</a>
-@Html.ActionLink("Uj cikk felvitele", "Create")
+
 
