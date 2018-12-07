@@ -6,12 +6,13 @@ using System.Web.Mvc;
 using ToDoApp.Models;
 
 namespace ToDoApp.Controllers
-{
+{    
     public class TodoController : Controller
-    { 
+    {
+        Db db = new Db();
         public ActionResult Index()
         {
-            return View(MyDb.Lista);
+            return View(db.TodoItems.ToList()); //Az index oldalunk nem dbSet tipust, hanem listat var
         }
 
         //[HttpGet, HttpPost]
@@ -30,9 +31,11 @@ namespace ToDoApp.Controllers
                 //Ez nem jo, mert ha torlok a listabol, akkor onnantol ez duplazni fogja az Id-kat
                 //var maxId = MyDb.Lista.Count;
 
-                var maxId = MyDb.Lista.Max(x => x.Id);
-                MyDb.Lista.Add(new TodoItem() { Id = maxId+1, Name = name, Done = isDone });
-
+                //var maxId = MyDb.Lista.Max(x => x.Id);
+                //MyDb.Lista.Add(new TodoItem() { Id = maxId+1, Name = name, Done = isDone });
+                db.TodoItems.Add (new TodoItem() { Name = name, Done = isDone }); //a kulcs mezot az adatb automatikusan kezeli
+                //adatbazisba irni:
+                db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
@@ -54,7 +57,7 @@ namespace ToDoApp.Controllers
             //MyDb.Lista.Where(x=>x.Id == id); //Olyan lista lesz, amin csak az id-nak megfelelo elemek vannak, azaz 1 db.
             
             //csak, ha garantalni tudom, hogy egyetlen elem van ilyen, amugy exception!
-            var item = MyDb.Lista.Single(x =>x.Id == id);
+            var item = db.TodoItems.Single(x =>x.Id == id);
 
             //Ha nem garantalhato, akkor: (ha nincs ilyen elem, akkor null-lal ter vissza. Kivetelt ez is dob, ha tobb talalat van)
             //var item = MyDb.Lista.SingleOrDefault(x => x.Id == id);
@@ -68,31 +71,34 @@ namespace ToDoApp.Controllers
         //public ActionResult Edit(TodoItem item) // nem jon vissza adat a view-bol
         {
             //a modositott elem kikeresese
-            var item = MyDb.Lista.Single(x => x.Id == id);
+            var item = db.TodoItems.Single(x => x.Id == id);
             //A modositasok vegrehajtasa
             item.Name = name;
             item.Done = done;
+
+            db.SaveChanges();
             return RedirectToAction("Index");            
         }
 
         [HttpGet]
         public ActionResult Delete(int id)
         {
-            var item = MyDb.Lista.Single(x => x.Id == id);
+            var item = db.TodoItems.Single(x => x.Id == id);
             return View(item);
         }
 
         [HttpPost]
         public ActionResult DeleteConfirmed(int id)
         {
-            var item = MyDb.Lista.Single(x => x.Id == id); 
-            MyDb.Lista.Remove(item);
+            var item = db.TodoItems.Single(x => x.Id == id); 
+            db.TodoItems.Remove(item);
+            db.SaveChanges();
             return RedirectToAction("Index");             
         }
 
         public ActionResult Detalis(int id)
         {
-            var item = MyDb.Lista.Single(x => x.Id == id);
+            var item = db.TodoItems.Single(x => x.Id == id);
             return View(item);
 
         }
