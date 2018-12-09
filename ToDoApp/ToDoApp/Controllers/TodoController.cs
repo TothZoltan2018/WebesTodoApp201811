@@ -102,5 +102,10 @@ namespace ToDoApp.Controllers
             return View(item);
 
         }
+
+        public ActionResult Teszt()
+        {
+            return View();
+        }
     }
 } 
