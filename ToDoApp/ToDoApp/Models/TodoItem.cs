@@ -11,7 +11,7 @@ namespace ToDoApp.Models
     {
         [Key] //az Id lesz az adatbazisban a kulcs mezo
         public int Id { get; set; }
-        public string Name { get; internal set; }
-        public bool Done { get; internal set; }
+        public string Name { get; set; } //internal set: nem beviteli, csak megjelenito mezo... A todo2Controller varazsloja e miatt csinalta nem modosithatova a Crate es Edit lapokon a form mezoit
+        public bool Done { get;  set; }
     }
 } 

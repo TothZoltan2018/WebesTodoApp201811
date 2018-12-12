@@ -12,7 +12,7 @@ namespace ToDoApp.Models
     /// </summary>
     public class MyDb
     {
-        public static List<TodoItem> Lista = new List<TodoItem> //a lista publikus, eyert konvencio szerint nagybetusse atneveztuk
+        public static List<TodoItem> Lista = new List<TodoItem> //a lista publikus, ezert konvencio szerint nagybetusse atneveztuk
             {
                 new TodoItem() {Id = 1, Name = "Só", Done = true },
                 new TodoItem() {Id = 2,  Name = "Cukor", Done = true },
