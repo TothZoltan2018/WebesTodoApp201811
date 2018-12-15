@@ -1,0 +1,19 @@
+﻿
+@model List<ToDoApp.Models.Aircraft>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index page. Lists all items in the database.</h2>
+
+<ol>
+    @foreach (var plane in Model)
+    {
+        @*<li>@Html.DisplayText(plane.Type)</li>*@ @*nem mukodik*@        
+    <li>@Html.ActionLink(plane.Type, "Details", new { id = plane.Id })  @Html.ActionLink("Edit", "Edit", new { id = plane.Id })  @Html.ActionLink("Delete", "Delete", new { id = plane.Id })  </li>
+    }
+
+</ol>
+
+<li>@Html.ActionLink("Add Plane","Create")</li>

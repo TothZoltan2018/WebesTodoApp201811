@@ -132,12 +132,15 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\Aircraft2Controller.cs" />
+    <Compile Include="Controllers\AircraftController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\Todo2Controller.cs" />
     <Compile Include="Controllers\TodoController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Aircraft.cs" />
     <Compile Include="Models\Db.cs" />
     <Compile Include="Models\MyDb.cs" />
     <Compile Include="Models\TodoItem.cs" />
@@ -192,6 +195,16 @@
     <Content Include="Views\Todo2\Details.cshtml" />
     <Content Include="Views\Todo2\Edit.cshtml" />
     <Content Include="Views\Todo2\Index.cshtml" />
+    <Content Include="Views\Aircraft\Index.cshtml" />
+    <Content Include="Views\Aircraft\Create.cshtml" />
+    <Content Include="Views\Aircraft\Details.cshtml" />
+    <Content Include="Views\Aircraft\Edit.cshtml" />
+    <Content Include="Views\Aircraft\Delete.cshtml" />
+    <Content Include="Views\Aircraft2\Create.cshtml" />
+    <Content Include="Views\Aircraft2\Delete.cshtml" />
+    <Content Include="Views\Aircraft2\Details.cshtml" />
+    <Content Include="Views\Aircraft2\Edit.cshtml" />
+    <Content Include="Views\Aircraft2\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

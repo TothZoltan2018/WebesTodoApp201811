@@ -1,0 +1,28 @@
+﻿@model ToDoApp.Models.Aircraft
+@{
+    /**/
+
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+
+@using (Html.BeginForm("Edit", "Aircraft", FormMethod.Post))
+{
+    @Html.HiddenFor(model => model.Id)
+
+    <label>Type            </label> @Html.EditorFor(x => x.Type)
+    <br><label>Role            </label>@Html.DropDownList("Role",
+            new SelectList(Enum.GetValues(typeof(ToDoApp.Models.Roles))),
+            "Select Role",
+            new { @class = "form-control" })    
+    <br><label>Crew number     </label>@Html.EditorFor(x => x.Crew)
+    <br><label>Range [km]      </label>@Html.EditorFor(x => x.Range)
+    <br><label>Max Speed [km/h]</label>@Html.EditorFor(x => x.Speed)
+    <br><label>Max load [kg]   </label>@Html.EditorFor(x => x.Load)
+    <br><label>Stealth         </label>@Html.EditorFor(x => x.Stealth)
+
+    <input type="submit" value="Mentés" />
+}
+
+@Html.ActionLink("Back to List", "Index")

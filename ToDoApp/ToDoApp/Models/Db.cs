@@ -12,4 +12,9 @@ namespace ToDoApp.Models
     {
         public DbSet<TodoItem> TodoItems { get; set; }
     }
+
+    public class DbAircraft : DbContext
+    {
+        public DbSet<Aircraft> AirCrafts { get; set; }
+    }
 }

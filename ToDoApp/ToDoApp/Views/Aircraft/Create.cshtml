@@ -1,0 +1,29 @@
+﻿
+@{
+    ViewBag.Title = "Create";
+}
+
+@*@using MyMVCApp.Models*@
+@model List<ToDoApp.Models.Aircraft>
+
+<h2>Create a new entry</h2>
+
+<form method="post">
+    <label>Type </label> <input name="Type">
+    @*<br><label>Role </label> <input name="Role" />*@
+    <br/>@Html.DropDownList("Role",
+                    new SelectList(Enum.GetValues(typeof(ToDoApp.Models.Roles))),
+                    "Select Role",
+                    new { @class = "form-control" })
+    <br><label>Crew number</label> <input name="Crew" />
+    <br><label>Range [km]</label> <input name="Range" />
+    <br><label>Max Speed [km/h]</label> <input name="Speed" />
+    <br><label>Max load [kg]</label> <input name="Load" />
+    <br><label>Stealth</label> <input id="Stealth" name="Stealth" type="checkbox" value="true" />
+    <input name="Stealth" type="hidden" value="false" />
+    <br>
+    <button>Save</button>
+
+</form>
+
+@Html.ActionLink("Cancel", "Index")
